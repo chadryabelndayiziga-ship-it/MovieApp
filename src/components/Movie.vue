@@ -90,7 +90,7 @@ export default {
         this.$router.push('/watch/' + index)
       }
     }
-  }
+  }     
 }
 </script>
 
@@ -122,6 +122,7 @@ body {
     linear-gradient(180deg, #090b11 0%, #02040b 100%);
   padding: 2rem;
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   justify-content: flex-start;
   align-items: flex-start;
@@ -131,14 +132,13 @@ body {
   width: 350px;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
   position: sticky;
   top: 2rem;
   background-color: rgba(135, 142, 154, 0.16);
   height: 100%;
   border-radius: 15px;
-  padding: 50px 15px;
-  
+  padding: 2.5rem 1rem;
 }
 
 .movie-filters h3 {
@@ -178,20 +178,22 @@ body {
   flex: 1;
   max-width: 900px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
+  width: 100%;
 }
 
 .movie-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   background: rgba(15, 23, 42, 0.95);
   border: 1px solid rgba(148, 163, 184, 0.12);
   padding: 1rem;
   box-shadow: 0 28px 60px rgba(0, 0, 0, 0.22);
   transition: transform 180ms ease, border-color 180ms ease;
   border-radius: 15px;
+  min-width: 0;
 }
 
 .movie-card:hover {
@@ -293,50 +295,66 @@ body {
   background: rgba(249, 115, 22, 0.16);
   color: #fdba74;
 }
-.recherche-movie{
-  position: sticky;
-  top: 0;
-  display: flex;
-  gap: 79%;
-  background-color: rgba(135, 142, 154, 0.16) ;
-  border-radius: 15px;
-  width: 100%;
-  margin-top: 10px;
-  
 
+@media (max-width: 900px) {
+  .movie-app-shell {
+    flex-wrap: wrap;
+    padding: 1.5rem;
+  }
 
-}
-.recherche-movie p{
-    padding-right: 10px;
-    color: #f97316;
-    font-size: 15px;
-    margin-top: 10px;
-    margin-left: 10px;
+  .movie-filters {
+    width: 100%;
+    position: relative;
+    top: 0;
+    height: auto;
+    padding: 1.5rem 1rem;
+  }
+
+  .movie-list {
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
 }
 
-input{
-    margin-top: 15px;
-    width: 90% 50%;
-    gap: 10px;  ;
-    border-radius: 6px;
-    border: #64748b;
-    height: 25px;
-    background-color: aliceblue;
-    color: black;
-    margin-bottom: 10px;
-    width: 130px;
-    
+@media (max-width: 760px) {
+  .movie-list {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
 }
-.movie-watch{
-    border: none;
-    background-color: #0ea5e9;
-    padding: 10px 5px;
-    border-radius: 6px;
+
+@media (max-width: 600px) {
+  .movie-app-shell {
+    padding: 1rem;
+  }
+
+  .movie-card {
+    padding: 1rem;
+  }
+
+  .movie-header {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .movie-header button,
+  .movie-favorite {
+    width: auto;
+  }
+
+  .movie-square-avatar {
+    height: 180px;
+  }
+
+  .movie-tag {
+    font-size: 0.75rem;
+  }
 }
-.recherche-movie button{
-    padding: 5px ;
-    border-radius: 6px;
-    background-color: #0ea5e9;
+
+.movie-watch {
+  border: none;
+  background-color: #0ea5e9;
+  padding: 10px 5px;
+  border-radius: 6px;
 }
 
 </style>

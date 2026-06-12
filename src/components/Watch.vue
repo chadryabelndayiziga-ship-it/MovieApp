@@ -6,8 +6,14 @@
 
     <div class="watch-content">
       <div class="video-player">
-        <video v-if="currentMovie.trailer" controls class="video">
-          <source :src="currentMovie.trailer" type="video/mp4" />
+        <video
+          v-if="currentMovie.trailer"
+          controls
+          class="video"
+          :src="currentMovie.trailer"
+          preload="metadata"
+          playsinline
+          webkit-playsinline>
           Votre navigateur ne prend pas en charge la lecture vidéo.
         </video>
         <div v-else class="video-empty">Vidéo non disponible</div>
@@ -117,6 +123,7 @@ export default {
 
 .watch-content {
   display: flex;
+  flex-wrap: wrap;
   gap: 32px;
   padding: 0 32px 32px;
   max-width: 1400px;
@@ -424,23 +431,29 @@ export default {
 /* Responsive design */
 @media (max-width: 1024px) {
   .watch-content {
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 24px;
+    padding: 0 24px 24px;
   }
 
   .other-videos {
-    max-width: 100%;
+    max-width: 360px;
+    flex: 0 0 360px;
   }
 
   .movie-details {
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    text-align: center;
+    text-align: left;
   }
 
   .poster-image {
     width: 180px;
     height: 260px;
+  }
+
+  .movie-info {
+    min-width: 260px;
   }
 
   .movie-info h1 {
@@ -450,34 +463,103 @@ export default {
 
 @media (max-width: 768px) {
   .watch-content {
+    flex-wrap: wrap;
     padding: 0 16px 16px;
+    gap: 20px;
   }
 
   .back-link {
     margin: 16px;
   }
 
+  .video {
+    min-height: 240px;
+  }
+
+  .video-empty {
+    min-height: 240px;
+  }
+
   .movie-details {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     padding: 24px 16px;
   }
 
+  .movie-poster {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
   .poster-image {
-    width: 150px;
-    height: 220px;
+    width: 100%;
+    height: auto;
+    max-height: 320px;
+  }
+
+  .movie-info {
+    width: 100%;
+    min-width: 250px;
   }
 
   .movie-info h1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
+  }
+
+  .movie-favorite {
+    width: auto;
+    justify-content: center;
   }
 
   .other-card {
+    flex-direction: row;
+    align-items: flex-start;
     padding: 16px;
     gap: 12px;
   }
 
   .other-card img {
-    width: 70px;
-    height: 95px;
+    width: 120px;
+    height: 160px;
+  }
+
+  .other-meta {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-link {
+    margin: 12px;
+    font-size: 0.95rem;
+    padding: 8px 14px;
+  }
+
+  .watch-content {
+    padding: 0 12px 12px;
+  }
+
+  .movie-details {
+    padding: 18px 12px;
+  }
+
+  .movie-info h1 {
+    font-size: 1.5rem;
+  }
+
+  .genre,
+  .description,
+  .other-genre,
+  .other-description {
+    font-size: 0.95rem;
+  }
+
+  .other-videos h3 {
+    font-size: 1.25rem;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 export const movies = [
   {
     title: "The Matrix",
-    genre: "Sci-Fi",
+    genre: "Sci-Fi / Drama",
     image: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
     description: "Un hacker découvre que le monde dans lequel il vit est une simulation contrôlée par des machines.",
     trailer: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
@@ -9,7 +9,7 @@ export const movies = [
   },
   {
     title: "Inception",
-    genre: "Sci-Fi",
+    genre: "Sci-Fi / Drama",
     image: "https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg",
     description: "Un voleur spécialisé dans les rêves reçoit la mission d’implanter une idée dans l’esprit d’une cible.",
     trailer: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",

@@ -47,18 +47,18 @@ export default {
 
 .recherche-movie {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 15px;
-
+  gap: 1rem;
 }
 
 .recherche-movie p {
   margin: 0;
-  font-size: 18px;
+  font-size: 18px sans-serif;
   font-weight: 700;
-  color: #38bdf8;
-  white-space: nowrap;
+  color: #f87e38;
+  white-space: normal;
   flex-shrink: 0;
 }
 
@@ -78,9 +78,9 @@ export default {
   font-size: 13px;
   outline: none;
   transition: all 0.3s ease;
-  width: 170px;
+  width: clamp(170px, 40vw, 280px);
   flex-shrink: 0;
-  margin-right: 5%;
+  margin-right: 0;
 }
 
 .search-input:focus {
@@ -91,5 +91,22 @@ export default {
 
 .search-input::placeholder {
   color: #94a3b8;
+}
+
+@media (max-width: 600px) {
+  .recherche-movie {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .recherche-movie p {
+    width: 100%;
+    text-align: left;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 </style>
